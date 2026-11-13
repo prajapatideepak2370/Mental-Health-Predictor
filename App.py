@@ -4,10 +4,7 @@ Streamlit Frontend for ML Mental Health Prediction API
 Connects to a FastAPI backend running at http://127.0.0.1:2200/predict
 
 Run with:
-    streamlit run app.py
-
-Make sure your FastAPI backend is running first:
-    uvicorn main:app --port 2200 --reload
+    .\run_app.ps1
 """
 
 import time
@@ -273,8 +270,8 @@ if submitted:
     if connection_error:
         st.markdown(
             '<div class="error-box">🚫 <b>Connection Error:</b> Could not reach the FastAPI backend at '
-            f'<code>{PREDICT_ENDPOINT}</code>. Make sure it is running '
-            '(<code>uvicorn main:app --port 2200 --reload</code>).</div>',
+            f'<code>{PREDICT_ENDPOINT}</code>. Start both services from the project folder with '
+            'PowerShell command <code>.\run_app.ps1</code>.</div>',
             unsafe_allow_html=True,
         )
     elif response is not None and response.status_code == 200:
